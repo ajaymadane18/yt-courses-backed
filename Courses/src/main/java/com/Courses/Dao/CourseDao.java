@@ -24,5 +24,23 @@ public class CourseDao implements CourseService{
 		// TODO Auto-generated method stub
 		return cr.findAll();
 	}
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		cr.deleteById(id);
+		
+	}
+	@Override
+	public void update(Courses cc, String id) {
+		// TODO Auto-generated method stub
+		    Courses c=cr.getById(id);
+		     if(c!=null) {
+		    	 c.setCourse_title(cc.getCourse_title());
+		    	 c.setCource_description(cc.getCource_description());
+		     }
+		     cr.save(c);
+		
+	}
+	
 
 }
